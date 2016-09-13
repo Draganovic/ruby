@@ -4,15 +4,14 @@ class Raindrops
 
   RAINDROPS = {3 => "Pling", 5 => "Plang", 7 => "Plong"}
 
+
   def self.convert(number)
-
-    output = ""
-
+    output = ''
     RAINDROPS.each do |prime, sound|
-      output << sound if number % prime ==0
-
-    end
-    output.empty? ? "#{number}" : output
+      output << sound if number % prime == 0
+      end
+        output << "#{number}" if output.empty?
+    output
   end
 
 end
