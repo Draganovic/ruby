@@ -1,31 +1,26 @@
 class Complement
-VERSION = 2
+VERSION = 3
 DNA_NUCLEOTIDES = %w(G C T A)
 RNA_NUCLEOTIDES = %w(C G A U)
 
-  def self.of_dna(dna_strand)
-    dna_strand.gsub(/./) do |nucleotide|
-      raise ArgumentError unless DNA_NUCLEOTIDES.include?(nucleotide)
-      case nucleotide
-      when 'G' then 'C'
-      when 'C' then 'G'
-      when 'T' then 'A'
-      when 'A' then 'U'
-      end
+def self.of_dna(dna_strand)
+  
+  trans = []
+  nucleotide = dna_strand.each_char do |n|
+    if n == "G"
+       trans << "C"
+    elsif n == "C"
+      trans << "G"
+    elsif n == "T"
+      trans << "A"
+    elsif n == "A"
+      trans << "U"
+    else
+      trans << ""
     end
-   end
+ end
+ trans.join
+end
 
-  def self.of_rna(rna_strand)
-    rna_strand.gsub(/./) do |nucleotide|
-      raise ArgumentError unless RNA_NUCLEOTIDES.include?(nucleotide)
-      case nucleotide
-      when 'C' then 'G'
-      when 'G' then 'C'
-      when 'A' then 'T'
-      when 'U' then 'A'
-      end
-    end
-  end
 
 end
-#
