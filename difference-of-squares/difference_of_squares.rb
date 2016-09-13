@@ -1,24 +1,24 @@
-require 'pry'
 class Squares
 
-  VERSION = 1
+  VERSION = 2
 
-  attr_reader :numbers
-
-  def initialize(numbers)
-    @numbers = (1..numbers)
+  def initialize(number)
+    @number = number
+    @range = 1..number
   end
 
-  def square_of_sums
-    numbers.reduce(0, :+)**2
+  def square_of_sum
+    total = @range.to_a.reduce(0, :+)
+    total**2
   end
 
   def sum_of_squares
-    numbers.reduce(0) {|x, y| x + y**2}
+     @range.reduce(0) { |sum, num| num**2 + sum}
   end
 
   def difference
-    square_of_sums - sum_of_squares
+    diff = sum_of_squares - square_of_sum
+     diff * -1 if diff <= 0
   end
 
 end
