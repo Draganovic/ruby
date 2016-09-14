@@ -4,12 +4,9 @@ VERSION = 1
 
   BANK = { 1 => "I", 5 => "V", 10 => "X", 50 => "L", 100 => "C", 500 => "D", 1000 => "M"}
 
-
-
   def to_roman
 
       output = ""
-
 
       if  BANK[self]
         output << BANK[self]
@@ -30,7 +27,7 @@ VERSION = 1
       elsif self >= 90 && self < 94
         output << "XC" << (BANK[1] * (self - 90))
       elsif self >= 140 && self <144
-        output << "CXL" << (BANK[1] * (self -140))
+        output << "CXL" << (BANK[1] * (self - 140))
       elsif self >= 160 && self < 164
         output << "CLX" << (BANK[1] * (self - 160))
       elsif self > 400 && self < 404
@@ -38,7 +35,7 @@ VERSION = 1
       elsif self == 575
         output << "DLXXV"
       elsif self > 910 && self < 914
-        output << "CMX" << (BANK[1] * (self -910))
+        output << "CMX" << (BANK[1] * (self - 910))
       elsif self == 1024
         output << "MXXIV"
       elsif self == 3000
