@@ -3,11 +3,12 @@ class Robot
   attr_reader :name
 
   def initialize
-    @name = ('A'..'Z').to_a.sample + ('A'..'Z').to_a.sample + (rand 999).to_s
+    letters = ("A".."Z").to_a.sample(2).join
+    numbers = ("100"..."999").to_a.sample(1).join
+    @name = letters + numbers
   end
 
   def reset
-    @name = ('A'..'Z').to_a.sample + ('A'..'Z').to_a.sample + (rand 999).to_s
+    initialize
   end
-
 end
